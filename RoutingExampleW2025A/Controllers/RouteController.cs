@@ -133,11 +133,12 @@ namespace RoutingExampleW2025A.Controllers
         [Consumes("application/x-www-form-urlencoded")]
         public string ConvertToCmCubed([FromForm] double length_imperial, [FromForm]double height_imperial, [FromForm] double width_imperial)
         {
-            
+            // ratio that converts imperial units (in) to metric (cm)
+            double imperial_to_metric = 2.54;
 
-            double length_metric = length_imperial * 2.54;
-            double height_metric = height_imperial * 2.54;
-            double width_metric = width_imperial* 2.54;
+            double length_metric = length_imperial * imperial_to_metric;
+            double height_metric = height_imperial * imperial_to_metric;
+            double width_metric = width_imperial* imperial_to_metric;
 
             return "The total volume is " + (length_metric * height_metric * width_metric) + " cm^3";
 
