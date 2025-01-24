@@ -112,7 +112,7 @@ namespace RoutingExampleW2025A.Controllers
 
 
         /// <summary>
-        /// We want to receive a length, width, and height in inches and compute the value in cm^3
+        /// We want to receive a length, width, and height of a prism in inches and compute volume value in cm^3
         /// </summary>
         /// <returns>
         /// A string that describes the total volume in cm cubed
@@ -140,7 +140,9 @@ namespace RoutingExampleW2025A.Controllers
             double height_metric = height_imperial * imperial_to_metric;
             double width_metric = width_imperial* imperial_to_metric;
 
-            return "The total volume is " + (length_metric * height_metric * width_metric) + " cm^3";
+            double volume_metric = (length_metric * height_metric * width_metric);
+
+            return $"The total volume is {volume_metric} cm^3";
 
         }
 
