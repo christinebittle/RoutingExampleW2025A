@@ -1,0 +1,6 @@
+@RoutingExampleW2025A_HostAddress = http://localhost:5258
+
+GET {{RoutingExampleW2025A_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
