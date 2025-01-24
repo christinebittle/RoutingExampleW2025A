@@ -115,31 +115,31 @@ namespace RoutingExampleW2025A.Controllers
         /// We want to receive a length, width, and height in inches and compute the value in cm^3
         /// </summary>
         /// <returns>
-        /// A string that describes the total volume in centimeters cubed
+        /// A string that describes the total volume in cm cubed
         /// </returns>
         /// <example>
         /// POST: api/Route/ConvertToCmCubed
         /// Header: Content-Type: application/x-www-form-urlencoded
-        /// POST DATA: length=1&width=1&height=1
+        /// POST DATA: length_imperial=1&width_imperial=1&height_imperial=1
         /// -> The total volume is 16.387cm^3
         /// </example>
         /// <example>
         /// POST: api/Route/ConvertToCmCubed
         /// Header: Content-Type: application/x-www-form-urlencoded
-        /// POST DATA: length=10&width=10&height=10
+        /// POST DATA: length_imperial=10&width_imperial=10&height_imperial=10
         /// -> The total volume is 16387.064cm^3
         /// </example>
         [HttpPost(template:"ConvertToCmCubed")]
         [Consumes("application/x-www-form-urlencoded")]
-        public string ConvertToCmCubed([FromForm] double length_metric, [FromForm]double height_metric, [FromForm] double width_metric)
+        public string ConvertToCmCubed([FromForm] double length_imperial, [FromForm]double height_imperial, [FromForm] double width_imperial)
         {
             
 
-            double length_imperial = length_metric * 2.54;
-            double height_imperial = height_metric * 2.54;
-            double width_imperial = width_metric * 2.54;
+            double length_metric = length_imperial * 2.54;
+            double height_metric = height_imperial * 2.54;
+            double width_metric = width_imperial* 2.54;
 
-            return "The total volume is " + (length_imperial * width_imperial * height_imperial) + " cm^3";
+            return "The total volume is " + (length_metric * height_metric * width_metric) + " cm^3";
 
         }
 
